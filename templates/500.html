@@ -1,0 +1,11 @@
+{% extends('base.html') %}
+
+{% block title %}Uh Oh! &mdash; {{ super() }}{% endblock title %}
+
+{% block content %}
+
+<h1>500 Error</h1>
+<h2>Uh Oh, Something's gone wrong!</h2>
+<p>I'm obviously not very good at this.  Whoops!  Let me know what's broken and I'll fix it.  In the meantime have a look at the <a href="{{ url_for('home') }}">homepage</a>.  Hopefully that one works!</p>
+
+{% endblock content %}
