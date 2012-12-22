@@ -1,11 +1,11 @@
 a {color:#4CC417;}
 a:hover {color:#4CC417;}
-body {padding-top: 60px; background-color:#de0000; color:#393939; padding-bottom:30px; text-align:center;}
+body {background-color:#de0000; color:#393939; padding-bottom:30px; text-align:center;}
 .navbar-inverse .navbar-inner {background:#fcfcfc; border-color:#fcfcfc;} 
 .navbar-inverse .brand {color:#4CC417; padding:20px 20px 20px 20px;} 
 .navbar-inverse .brand:hover {color:#4CC417;}
 .container-fluid {max-width:600px; margin:0 auto;}
-.content-wrap {background:#fcfcfc; margin-top:30px; padding:30px 20px; -webkit-border-radius:20px; -moz-border-radius:20px; border-radius:20px;}
+.content-wrap {background:#fcfcfc; margin-top:10px; padding:30px 20px; -webkit-border-radius:20px; -moz-border-radius:20px; border-radius:20px;}
 img {display:block; margin:auto auto;-webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px;}
 .btn-large {font-size:40px; line-height:40px; padding:15px 30px;}
 
