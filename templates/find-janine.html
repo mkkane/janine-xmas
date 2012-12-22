@@ -1,0 +1,12 @@
+{% extends('base.html') %}
+
+{% block title %}{{ super() }} &ndash; Find Her!{% endblock title %}
+
+{% block content %}
+
+<h1>Well then, you'll be very pleased to discover that your life has an important new purpose.</h1>
+<h1>Find Janine&hellip;</h1>
+<img src="{{ url_for('static', filename='img/janine-beach.jpg') }}"></img>
+<h1>And tell her she's the most wonderful person I've ever met.</h1>
+
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends('base.html') %}
+
+{% block title %}{{ super() }} &ndash; Secret!!{% endblock title %}
+
+{% block content %}
+
+<h1>Janine, I think the world of you.</h1>
+<img src="{{ url_for('static', filename='img/christmas-tree.gif') }}">
+<h1>Including all it's cheesy tree drawings and terrible websites.</h1>
+
+{% endblock content %}

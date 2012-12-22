@@ -7,6 +7,8 @@
     <meta name="description" content="Janine is Wonderful">
     <meta name="author" content="Michael Kane">
 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/janine-avis.ico') }}">
+
     <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 
@@ -17,29 +19,20 @@
   </head>
 
   <body class="{{ request.endpoint }}">
+    <div class="canvas"></div>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="{{ url_for('home') }}">Merry Xmas Janine</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-            {%- for endpoint, caption in [
-              ('home', 'Home'),
-            ] %}
-              <li{% if endpoint == request.endpoint %} class="active"{% endif %}><a href="{{ url_for(endpoint) }}">{{ caption }}</a></li>
-            {%- endfor %}
+        <div class="container-fluid">
+          <a class="brand" href="{{ url_for('home') }}"><b>Merry Xmas Janine!!</b></a>
+            <ul class="nav pull-right">
+              <li><a href="{{ url_for('santa') }}"><img src="{{ url_for('static', filename='img/sled.gif') }}"></a></li>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
       {%- for message in get_flashed_messages(True) %}
       <div class="flashed-message alert alert-{{ message[0] }}">
         <a class="close" data-dismiss="alert" href="#">&times;</a>
@@ -47,7 +40,9 @@
       </div>
       {%- endfor %}
 
-      {% block content %}{% endblock %}
+      <div class="content-wrap">
+        {% block content %}{% endblock %}
+      </div>
     </div> <!-- /container -->
 
     <!-- Le javascript

@@ -41,6 +41,12 @@ def cache_buster_url_for(endpoint, **values):
         values['v'] = settings.STATIC_RESOURCE_VERSION
     return url_for(endpoint, **values)
 
+@app.route('/robots.txt')
+def robots():
+    return '''
+User-agent: *
+Disallow: /
+'''
 
 ###### Helpers ######
 
@@ -66,6 +72,53 @@ def redirect_back_internal_url():
 def home():
     return render_template('home.html')
 
+@app.route('/come-to-matilda')
+def come_to_matilda():
+    return render_template('come-to-matilda.html')
+
+@app.route('/find-janine')
+def find_janine():
+    return render_template('find-janine.html')
+
+@app.route('/santa')
+def santa():
+    return render_template('santa.html')
+
+@app.route('/email', methods=['POST'])
+def email():
+    mail("m.k.kane@gmail.com",
+         "Janine Sent You Something!",
+         request.form['body'])
+
+    return render_template('home.html')
+
+
+def mail(to, subject, text):
+    import smtplib
+    from email.MIMEMultipart import MIMEMultipart
+    from email.MIMEBase import MIMEBase
+    from email.MIMEText import MIMEText
+    from email import Encoders
+    import os
+
+    gmail_user = os.environ['GMAIL_USER']
+    gmail_pwd = os.environ['GMAIL_PASSWORD']
+
+    msg = MIMEMultipart()
+    
+    msg['From'] = gmail_user
+    msg['To'] = to
+    msg['Subject'] = subject
+    
+    msg.attach(MIMEText(text))
+
+    mailServer = smtplib.SMTP("smtp.gmail.com", 587)
+    mailServer.ehlo()
+    mailServer.starttls()
+    mailServer.ehlo()
+    mailServer.login(gmail_user, gmail_pwd)
+    mailServer.sendmail(gmail_user, to, msg.as_string())
+    mailServer.close()
 
 
 if __name__ == '__main__':

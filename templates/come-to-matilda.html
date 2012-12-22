@@ -1,11 +1,13 @@
 {% extends('base.html') %}
 
-{% block title %}{{ super() }}{% endblock title %}
+{% block title %}{{ super() }} &ndash; Come To Matilda{% endblock title %}
 
 {% block content %}
 
-<h1>Hey!</h1>
-<h2>Are you the inimitable Janine Fletcher?</h2>
+<h1>Merry Christmas Janine!!</h1>
+<h1>I think you're magical.</h1>
+<h1>Will you come to Matilda The Musical with me?</h1>
 <a class="btn btn-success btn-large" href="{{ url_for('come_to_matilda') }}">Yes</a>
 <a class="btn btn-danger btn-large" href="{{ url_for('find_janine') }}">No</a>
+
 {% endblock content %}
