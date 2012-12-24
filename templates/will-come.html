@@ -1,0 +1,25 @@
+{% extends('base.html') %}
+
+{% block title %}{{ super() }} &ndash; Yes!!{% endblock title %}
+
+{% block content %}
+
+<h1>Fantastic!</h1>
+<img src="{{ url_for('static', filename='img/matilda-outstretched.jpg') }}"></img>
+<h4>You'd better let me know the good news!</h4>
+<div class="tell-michael">
+  <form action="{{ url_for(request.endpoint) }}" method="POST">
+    <input type="hidden" name="subject" class="hidden" value="{{ subject }}">
+      <textarea name="body">{{ default_message }}</textarea>
+      <p class="soft-text">(Feel free to change the message.)</p>
+      <div>
+        <input class="btn btn-success" type="submit" name="submit" value="Tell Michael">
+      </div>
+  </form>
+  <div class="sending-email"></div>
+  <div class="sent-email">
+    <h1>Thank You!</h1>
+  </div>
+</div>
+
+{% endblock content %}

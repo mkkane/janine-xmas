@@ -6,7 +6,11 @@ body {background-color:#de0000; color:#393939; padding-bottom:30px; text-align:c
 .navbar-inverse .brand:hover {color:#4CC417;}
 .container-fluid {max-width:600px; margin:0 auto;}
 .content-wrap {background:#fcfcfc; margin-top:10px; padding:30px 20px; -webkit-border-radius:20px; -moz-border-radius:20px; border-radius:20px;}
-img {display:block; margin:auto auto;-webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px;}
+.content-wrap img {display:block; margin:30px auto;-webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px;}
+.btns {margin:30px 0;}
 .btn-large {font-size:40px; line-height:40px; padding:15px 30px;}
-
+textarea {width:95%;max-width:350px;height:140px;padding-top:10px;padding-bottom:10px;margin-top:20px;}
+.soft-text {color:#777;}
+.sending-email {display:none;background:url('../img/ajax-loader.gif') no-repeat center center; width:100%; height:200px;}
+.sent-email {display:none;}
 .canvas {position:fixed;top:0;left:0;z-index:-1;}

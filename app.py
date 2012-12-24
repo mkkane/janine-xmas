@@ -72,10 +72,6 @@ def redirect_back_internal_url():
 def home():
     return render_template('home.html')
 
-@app.route('/come-to-matilda')
-def come_to_matilda():
-    return render_template('come-to-matilda.html')
-
 @app.route('/find-janine')
 def find_janine():
     return render_template('find-janine.html')
@@ -84,13 +80,48 @@ def find_janine():
 def santa():
     return render_template('santa.html')
 
+@app.route('/come-to-matilda')
+def come_to_matilda():
+    return render_template('come-to-matilda.html')
+
+@app.route('/come-to-matilda/will-come', methods=['GET', 'POST'])
+def will_come():
+    subject = 'Janine will come!'
+    default_message = '''Dear Michael,
+
+I will come to Matilda with you!
+
+Janine'''
+
+    if request.method == 'POST':
+        email()
+        return render_template('thanks.html')
+    
+    return render_template('will-come.html', subject=subject, default_message=default_message)
+
+@app.route('/come-to-matilda/wont-come', methods=['GET', 'POST'])
+def wont_come():
+    subject = 'Janine won\'t come...'
+    default_message = '''Michael,
+
+Regarding your recent request that I accompany you to Matilda The Musical.  No.  I'm afraid that won't work for me.
+
+Janine'''
+
+    if request.method == 'POST':
+        email()
+        return render_template('thanks.html')
+
+    return render_template('wont-come.html', subject=subject, default_message=default_message)
+
+
 @app.route('/email', methods=['POST'])
 def email():
     mail("m.k.kane@gmail.com",
-         "Janine Sent You Something!",
+         request.form['subject'],
          request.form['body'])
 
-    return render_template('home.html')
+    return jsonify(result='ok')
 
 
 def mail(to, subject, text):
@@ -98,7 +129,6 @@ def mail(to, subject, text):
     from email.MIMEMultipart import MIMEMultipart
     from email.MIMEBase import MIMEBase
     from email.MIMEText import MIMEText
-    from email import Encoders
     import os
 
     gmail_user = os.environ['GMAIL_USER']

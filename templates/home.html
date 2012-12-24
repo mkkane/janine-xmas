@@ -6,6 +6,9 @@
 
 <h1>Hey!</h1>
 <h2>Are you the inimitable Janine Fletcher?</h2>
-<a class="btn btn-success btn-large" href="{{ url_for('come_to_matilda') }}">Yes</a>
-<a class="btn btn-danger btn-large" href="{{ url_for('find_janine') }}">No</a>
+<div class="btns btn-group">
+  <a class="btn btn-success btn-large" href="{{ url_for('come_to_matilda') }}">Yes</a>
+  <a class="btn btn-danger btn-large" href="{{ url_for('find_janine') }}">No</a>
+</div>
+
 {% endblock content %}

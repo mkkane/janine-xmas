@@ -5,9 +5,12 @@
 {% block content %}
 
 <h1>Merry Christmas Janine!!</h1>
-<h1>I think you're magical.</h1>
-<h1>Will you come to Matilda The Musical with me?</h1>
-<a class="btn btn-success btn-large" href="{{ url_for('come_to_matilda') }}">Yes</a>
-<a class="btn btn-danger btn-large" href="{{ url_for('find_janine') }}">No</a>
+<h2>I think you're magical.</h2>
+<img src="{{ url_for('static', filename='img/matilda-book.jpg') }}"></img>
+<h2>Will you come to Matilda The Musical with me?</h2>
+<div class="btns btn-group">
+  <a class="btn btn-success btn-large" href="{{ url_for('will_come') }}">Yes</a>
+  <a class="btn btn-danger btn-large" href="{{ url_for('wont_come') }}">No</a>
+</div>
 
 {% endblock content %}
