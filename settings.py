@@ -1,4 +1,4 @@
-STATIC_RESOURCE_VERSION = '0.02'
+STATIC_RESOURCE_VERSION = '0.01'
 
 SECRET_KEY = '\x94~\x98\xc5\xff\x1d\xdd}\xc7\xb7)\xa7\xec\x94\xe8\xc56\xeb\xe7\xdc_\x19\x1fs'
 
